@@ -2,13 +2,13 @@ import os
 from PIL import Image
 import face_recognition
 
-#load the file from its path and find the locations of faces in that image
+# load the file from its path and find the locations of faces in that image
 def getFaceLocationsInImage(imagePath):
     img = face_recognition.load_image_file(imagePath)
     faceLocations = face_recognition.face_locations(img)
     return faceLocations
 
-#get the boundries of the area that will be cropped and the path of the image then return cropped image
+# get the boundries of the area that will be cropped and the path of the image then return cropped image
 def cropImage(cropBox, imagePath):
     image = Image.open(imagePath)
     croppedImage = image.crop(cropBox)
